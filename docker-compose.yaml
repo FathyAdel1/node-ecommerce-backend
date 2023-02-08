@@ -1,0 +1,14 @@
+version: "3.9"
+services:
+  redis:
+    image: "redis:alpine"
+    ports:
+      - "6379:6379"
+  server:
+    build: ./server
+    container_name: server_c
+    ports:
+      - 8000:8000
+    volumes:
+      - ./server:/app
+      - ./app/node_modules
